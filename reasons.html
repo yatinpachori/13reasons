@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hour 4 — Reasons I Love You 💌</title>
+    <meta name="theme-color" content="#ff5f9e" />
+    <style>
+      :root {
+        --bg1: #ffe6f1;
+        --bg2: #fff9fc;
+        --accent: #ff3f7d;
+        --text: #3b2b3b;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, var(--bg1), var(--bg2));
+        color: var(--text);
+        text-align: center;
+        overflow-x: hidden;
+      }
+      header {
+        padding: 50px 20px 20px;
+      }
+      h1 {
+        font-size: clamp(28px, 6vw, 48px);
+        color: var(--accent);
+        margin: 0;
+      }
+      p.subtitle {
+        opacity: 0.9;
+        margin: 8px 0 30px;
+        font-size: 1.1rem;
+      }
+
+      /* Floating hearts background */
+      #hearts {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .heart {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background: var(--accent);
+        transform: rotate(45deg);
+        animation: floatUp 8s linear forwards;
+      }
+      .heart:before,
+      .heart:after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background: var(--accent);
+        border-radius: 50%;
+      }
+      .heart:before {
+        top: -9px;
+        left: 0;
+      }
+      .heart:after {
+        left: -9px;
+        top: 0;
+      }
+      @keyframes floatUp {
+        from {
+          transform: translateY(100vh) rotate(45deg);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(-10vh) rotate(45deg);
+          opacity: 0;
+        }
+      }
+
+      /* Reasons (locked hearts) */
+      .reasons {
+        max-width: 850px;
+        margin: 0 auto 70px;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        position: relative;
+        z-index: 1;
+      }
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        padding: 30px 20px;
+        font-size: 1.1rem;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .card.locked::before {
+        content: "🔒";
+        font-size: 2rem;
+        color: var(--accent);
+        position: absolute;
+        z-index: 2;
+      }
+      .card.locked .text {
+        display: none;
+      }
+      .card.unlocked {
+        background: #fff0f6;
+      }
+      .card.unlocked .text {
+        display: block;
+        animation: fadeIn 0.6s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      }
+
+      .highlight {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      footer {
+        padding: 30px 20px 60px;
+        opacity: 0.7;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hearts"></div>
+
+    <header>
+      <h1>13 Reasons I Love You 💌</h1>
+      <p class="subtitle">Each heart hides a reason… click to unlock it. 🔑</p>
+    </header>
+
+    <main class="reasons" id="reasons">
+      <div class="card locked">
+        <div class="text">1. I love how I can be 100% myself with you.</div>
+      </div>
+      <div class="card locked">
+        <div class="text">
+          2. Your little rants are my favorite kind of music.
+        </div>
+      </div>
+      <div class="card locked">
+        <div class="text">3. You make even ordinary days feel magical.</div>
+      </div>
+      <div class="card locked">
+        <div class="text">
+          4. Your smile is the reason I want to smile more and Apki smile kisi ki
+        bhi jaan le skti hai, mujhse jab eye contact krte ho toh mai different
+        dimention mai hota hu
+        </div>
+      </div>
+      <div class="card locked">
+        <div class="text">
+          5. I Know how much you love me, ik you feel safe with me, tabhi aap jo
+          kisiko nhi bolte voh sb bhi boldete ho, apki aadat ni hai ik sab kuch
+          bolne ki, even try krne ki, par mere saath ap krte ho toh voh bht acha
+          lgta hai. and ap bht sochte ho ki kya bolu kya ni mujhe acha ni lgega
+          wagehra, waise toh nhi sochna chahiye mai bolta bhi hu apse, mujhe ap
+          kuch bhi bol skte ho par ap sochte ho voh care dikhata hai.
+        </div>
+      </div>
+      <div class="card locked">
+        <div class="text">6. Your innocence suits you so beautifully.</div>
+      </div>
+      <div class="card locked">
+        <div class="text">7. Even your little mood swings are adorable.</div>
+      </div>
+      <div class="card locked">
+        <div class="text">8. Your voice is my favorite comfort.</div>
+      </div>
+      <div class="card locked">
+        <div class="text">9. Apke saamne mai bht real feel krta hu, khudko samne rakh pata hu aaap meri har mostly har baat ache se sunte ho, smjhte ho.</div>
+      </div>
+      <div class="card locked">
+        <div class="text">10. Your eyes hold entire galaxies and mai har baar dub jata hu.</div>
+      </div>
+      <div class="card locked">
+        <div class="text">
+          11. You make me feel like the luckiest person alive. (yes ofc i pulled you)
+        </div>
+      </div>
+      <div class="card locked">
+        <div class="text">
+          12. I love your patience (even when you pretend not to have it).
+        </div>
+      </div>
+      <div class="card locked">
+        <div class="text highlight">
+          13. And most of all… I love <em>YOU</em>, endlessly. 💖
+        </div>
+      </div>
+    </main>
+
+    <footer>Forever and always yours 💫</footer>
+
+    <script>
+      // Floating hearts background
+      const hearts = document.getElementById("hearts");
+      function spawnHeart() {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.animationDuration = 5 + Math.random() * 5 + "s";
+        hearts.appendChild(h);
+        setTimeout(() => h.remove(), 10000);
+      }
+      setInterval(spawnHeart, 400);
+
+      // Unlock cards on click
+      document.querySelectorAll(".card").forEach((card) => {
+        card.addEventListener("click", () => {
+          if (card.classList.contains("locked")) {
+            card.classList.remove("locked");
+            card.classList.add("unlocked");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
